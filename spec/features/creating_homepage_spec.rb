@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Creating a homepage" do
     scenario do
-         visit '/'
+        visit '/'
 
         expect(page).to have_link('Athletes Den')
         expect(page).to have_link('Home')
