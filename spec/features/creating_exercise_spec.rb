@@ -2,11 +2,11 @@ require "rails_helper"
 
 RSpec.feature "Creating Exercise" do
     before do
-        @john = User.create(first_name: "Joe",
+        @joe = User.create(first_name: "Joe",
         last_name: "Bloggs",
         email: "joe@example.com", 
         password: "password")
-        login_as(@john)
+        login_as(@joe)
     end
     
     sceanrio "with valid inputs" do
