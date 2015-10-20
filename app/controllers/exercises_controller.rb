@@ -3,7 +3,7 @@ class ExercisesController < ApplicationController
     before_action :set_exercise, except: [:index, :new, :create]
     
     def index
-        
+        @exercises = current_user.exercises.all
     end
     
     def new
@@ -26,7 +26,13 @@ class ExercisesController < ApplicationController
     end
     
     def update
-        
+        if @exercise.update(exercise_params)
+          flash[:success] = "Exercise has been updated"
+          redirect_to [current_user, @exercise]
+        else
+          flash[:danger] = "Exercise has not been updated"
+          render :edit
+        end
     end
     
     def show
@@ -34,7 +40,9 @@ class ExercisesController < ApplicationController
     end
     
     def destroy
-        
+        @exercise.destroy
+        flash[:success] = "Exercise has been deleted"
+        redirect_to user_exercises_path(current_user)
     end
     
     private
