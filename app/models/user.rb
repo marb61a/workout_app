@@ -34,3 +34,4 @@ class User < ActiveRecord::Base
     friendships.where(friend: friend).first
   end
 end
+

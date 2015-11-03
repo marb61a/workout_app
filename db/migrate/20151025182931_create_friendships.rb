@@ -10,3 +10,5 @@ class CreateFriendships < ActiveRecord::Migration
     add_foreign_key :friendships, :friends
   end
 end
+
+
